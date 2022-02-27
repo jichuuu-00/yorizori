@@ -57,6 +57,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainapp',
+    'mypageapp',
+    'recipeapp',
+    'selectapp',
+    'postapp',
+    'commentapp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +81,7 @@ ROOT_URLCONF = 'yoleejolee.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
