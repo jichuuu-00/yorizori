@@ -21,7 +21,7 @@
     }
 
     .container img {
-        width: 100%;
+        width: 30%;
         border-radius: 1rem;
 
     }
@@ -31,7 +31,7 @@
 
     {% for post in post_list %}
     <a href="{% url 'postapp:detail' pk=post.pk %}">
-        #{% include 'snippets/card.html' with article=article %}
+        <img src="{{post.image.url}}">
     </a>
     {% endfor %}
 </div>
