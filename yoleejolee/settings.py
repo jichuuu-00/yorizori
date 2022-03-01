@@ -58,11 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
-    'mypageapp',
-    'recipeapp',
-    'selectapp',
     'postapp',
-    'commentapp',
     'bootstrap4',
 ]
 
