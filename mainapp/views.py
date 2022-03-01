@@ -5,3 +5,5 @@ from django.views.generic import ListView
 
 def MainSearch(request) :
     return render(request, 'articleapp/list.html')
+
+
