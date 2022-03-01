@@ -26,6 +26,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('mainapp.urls')),
     path('post/', include('postapp.urls')),
-]
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,8 +12,7 @@ urlpatterns = [
     path('delete/<int:pk>', PostDeleteView.as_view(), name='delete'),
     path('detail/<int:pk>', PostDetailView.as_view(), name='detail'),
     path('list/', PostListView.as_view(), name='list'),
-]
-
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
