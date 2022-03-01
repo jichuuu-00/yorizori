@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}post_search.html{% endblock %}
 
 {% block content %}
 <style>
@@ -13,44 +12,28 @@
     <div style=" text-align:center">
         <h4>요리 이름으로 검색</h4>
         <input type="검색" value="" style="width:300px;height:50px;font-size:30px;">
-        <button type="submit" style="width:120px;height:50px;font-size:30px;background-color:#69F0AE"k>검색</button>
+        <button type="submit" style="width:120px;height:50px;font-size:30px;background-color:#69F0AE">검색</button>
     </div>
     <hr>
 
+    {% if post_list %}
+    <div class="container">
 
-<form method="get" action="form-action.html" >
-    <div style=" text-align:center" >
-        <h4>재료로 검색</h4>
-            <fieldset>
-                <h5>음식 종류 선택</h5>
-                전체<input type="radio" name="food" value="all" checked />
-                한식<input type="radio" name="food" value="korea" />
-                중식<input type="radio" name="food" value="china" />
-                양식<input type="radio" name="food" value="usa" />
-            </fieldset>
-            <fieldset>
-                <legend>재료 선택</legend>
-                파 <input type="checkbox" name="Ingredients" value="exercise" />
-                양파 <input type="checkbox" name="Ingredients" value="movie" />
-                당근 <input type="checkbox" name="Ingredients" value="music" />
-                햄 <input type="checkbox" name="Ingredients" value="ect" />
-                감자 <input type="checkbox" name="Ingredients" value="ect" />
-                <br>
-                계란 <input type="checkbox" name="Ingredients" value="ect" />
-                버섯 <input type="checkbox" name="Ingredients" value="ect" />
-                돼지고기 <input type="checkbox" name="Ingredients" value="ect" />
-                소고기 <input type="checkbox" name="Ingredients" value="ect" />
-                닭고기 <input type="checkbox" name="Ingredients" value="ect" />
-                <br>
-                숙주나물 <input type="checkbox" name="Ingredients" value="ect" />
-                콩나물 <input type="checkbox" name="Ingredients" value="ect" />
-                시금치 <input type="checkbox" name="Ingredients" value="ect" />
-                브로콜리 <input type="checkbox" name="Ingredients" value="ect" />
-                 <p><input type="submit" value="Submit"> <input type="reset" value="Reset"></p>
-            </fieldset>
+        {% for post in post_list %}
+        <a href="{% url 'articleapp:detail' pk=article.pk %}">
+            {% include 'snippets/card.html' with article=article %}
+        </a>
+        {% endfor %}
     </div>
-        </form>
-    <hr>
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+
+    {% else %}
+    <div class="text-center">
+        <h1>No Article YET!</h1>
+    </div>
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
 </form>
 {% endblock %}
