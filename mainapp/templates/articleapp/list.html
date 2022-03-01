@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
-{% block content %}
 
+{% block content %}
 <style>
 
     .container {
@@ -26,28 +26,27 @@
 
     }
 </style>
-{% if article_list %}
-<div class="container">
 
-    {% for article in article_list %}
-    <a href="{% url 'article==app:detail' pk=article.pk %}">
-        {% include 'snippets/card.html' with article=article %}
+<br>
+
+<form action="." method="post"> {% csrf_token %}
+    {{ form.as_table }}
+    <div style=" text-align:center">
+        <h4>요리 이름으로 검색</h4>
+        <input type="검색" value="" style="width:300px;height:50px;font-size:30px;">
+        <button type="submit" style="width:120px;height:50px;font-size:30px;background-color:#69F0AE">검색</button>
+    </div>
+    <hr>
+
+    <div class="container">
+
+    {% for post in post_list %}
+    <a href="{% url 'postapp:detail' pk=post.pk %}">
+        #{% include 'snippets/card.html' with article=article %}
     </a>
     {% endfor %}
 </div>
 <script src="{% static 'js/magicgrid.js' %}"></script>
 
-{% else %}
-<div class="text-center">
-    <h1>No Article YET!</h1>
-</div>
-{% endif %}
-
-{% include 'snippets/pagination.html' with page_obj=page_obj %}
-
-
-<div style="text-align:center;">
-    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
-        Create Article
-    </a>
-</div>
+</form>
+{% endblock %}

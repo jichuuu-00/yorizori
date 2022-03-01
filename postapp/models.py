@@ -9,7 +9,7 @@ class Post(models.Model):
     recipe_material = models.CharField(max_length=200, null=True)
 
     title = models.CharField(max_length=200, null=True)
-    image = models.ImageField(upload_to='post/d', null=False)
+    image = models.ImageField(upload_to='', null=False)
     content = models.TextField(null=True)
 
     created_at = models.DateField(auto_now_add=True, null=True)
