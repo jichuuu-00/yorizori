@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div>
+        <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
+
+            <h1>
+                {{ target_post.title }}
+            </h1>
+            <h2>
+                요리종류 : {{ target_post.recipe_type}}
+                <br>
+                들어간 재료 :{{ target_post.recipe_material}}
+            </h2>
+            <hr>
+
+            <img style="width: 100%; border-radius: 1rem; margin: 2rem 0;"
+                   src = {{ target_post.image }}>
+            <p>
+                {{ target_post.content }}
+            </p>
+
+            <hr>
+
+        </div>
+    </div>
+
+
+{% endblock %}
